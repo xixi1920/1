@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>拾光 · 游学空间</title>
+  <!-- 引入字体与图标库 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    background-color: #faf9f6;
+    color: #2e2e2e;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* 导航栏 */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .logo-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #3a4e3f;
+    line-height: 1.2;
+  }
+
+  .logo-sub {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #6b705c;
+    margin-left: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #2e2e2e;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-links a:hover {
+    color: #7f8c6b;
+    border-bottom-color: #b6ad90;
+  }
+
+  .lang-badge {
+    background: #f0ede6;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #3a4e3f;
+  }
+/* 主视觉区域 */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 0 50px;
+  position: relative;
+}
+
+.hero-tag {
+  background-color: #e9e4d8;
+  color: #4a5b4c;
+  padding: 6px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  max-width: 800px;
+  color: #2b3b2c;
+}
+
+.highlight {
+  color: #7f8c6b;
+  position: relative;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin: 20px auto 30px;
+  color: #4a4a4a;
+}
+
+.cta-button {
+  background: #3a4e3f;
+  border: none;
+  color: white;
+  padding: 14px 38px;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  text-decoration: none;
+  background-color: #3a4e3f;
+  box-shadow: 0 8px 18px rgba(58, 78, 63, 0.2);
+}
+
+.cta-button:hover {
+  background: #4d6349;
+  transform: translateY(-2px);
+}
+/* 照片画廊 */
+.gallery-section {
+  margin: 30px 0 60px;
+}
+
+.section-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #2b3b2c;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title i {
+  color: #7f8c6b;
+  font-size: 2rem;
+}
+
+.subhead {
+  color: #5e5e5e;
+  margin-bottom: 32px;
+  font-size: 1.05rem;
+  max-width: 600px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+}
+
+.card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background-color: #d9d2c5;
+  display: block;
+}
+
+.card-content {
+  padding: 18px 16px 20px;
+  background: #ffffff;
+}
+
+.card-content h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #2b3b2c;
+}
+
+.card-content .location {
+  color: #7f8c6b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  line-height: 1.5;
+}
+/* 视频容器样式 */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video {
+  pointer-events: none;
+}
+/* 广告/亮点区域 */
+    .features-ad {
+      background: #f3f0e9;
+      border-radius: 36px;
+      padding: 48px 32px;
+      margin: 50px 0 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .feature-text {
+      flex: 1 1 280px;
+    }
+
+    .feature-text h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #2b3b2c;
+      margin-bottom: 16px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #2e2e2e;
+    }
+
+    .feature-list i {
+      color: #7f8c6b;
+      font-size: 1.3rem;
+      width: 28px;
+      text-align: center;
+    }
+
+    .ad-badge {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 24px;
+      flex: 1 1 240px;
+      text-align: center;
+      box-shadow: 0 14px 24px rgba(0,0,0,0.04);
+    }
+
+    .ad-badge .price {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #3a4e3f;
+    }
+
+    .ad-badge small {
+      font-size: 0.9rem;
+      color: #5e5e5e;
+      display: block;
+      margin: 6px 0 18px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #3a4e3f;
+      color: #3a4e3f;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      background: white;
+    }
+
+    .btn-outline:hover {
+      background: #3a4e3f;
+      color: white;
+    }
+
+    /* 行程卡片 */
+    .itinerary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 30px 0 50px;
+    }
+
+    .itin-card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.03);
+      text-align: center;
+    }
+
+    .itin-card i {
+      font-size: 2rem;
+      color: #7f8c6b;
+      margin-bottom: 14px;
+    }
+
+    /* 页脚 */
+    .footer {
+      border-top: 1px solid #e0dbd0;
+      padding: 32px 0 24px;
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: #5e5e5e;
+    }
+
+    @media (max-width: 640px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .features-ad {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head><body>
+  <div class="container">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-text">拾光</span>
+        <span class="logo-sub">TIMEGLOW · 游学</span>
+      </div>
+      <div class="nav-links">
+        <a href=" ">Home</a >
+        <a href="#">Programs</a >
+        <a href="#">Gallery</a >
+        <a href="#">Reviews</a >
+        <a href="#">Contact</a >
+        <span class="lang-badge"><i class="fas fa-globe"></i> EN / 中文</span>
+      </div>
+    </nav>
+<!-- 主视觉 + 照片墙背景 -->
+<section class="hero" style="position: relative; overflow: hidden; padding: 60px 0 70px;">
+  
+  <!-- 照片墙背景层 -->
+  <div class="photo-wall" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.25; z-index: 0; display: grid; grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(5, 1fr); gap: 6px; padding: 10px; pointer-events: none;">
+<div class="photo-item" style="background-image: url('1.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('2.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('3.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('4.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('5.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('6.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('7.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('8.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('9.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('10.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('11.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('12.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('13.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('14.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('15.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('16.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('17.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('18.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('19.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('20.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('21.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('22.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('23.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('24.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('25.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+<div class="photo-item" style="background-image: url('26.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('27.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('28.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('29.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('30.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('31.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('32.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('33.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('34.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('35.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('36.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('37.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('38.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('39.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('40.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('41.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('42.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('43.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('44.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('45.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('46.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('47.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('48.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('49.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+  <div class="photo-item" style="background-image: url('50.jpg'); background-size: cover; background-position: center; border-radius: 4px;"></div>
+</div>
+<!-- 左侧装饰 - 彩色图标飘落 -->
+<div class="hero-decoration-left" style="position: absolute; left:40px; top: 50%; transform: translateY(-50%); z-index: 1; pointer-events: none; display: flex; flex-direction: column; gap:24px;">
+  <i class="fas fa-camera-retro" style="animation: petalFall 4s ease-in-out infinite; font-size: 1.8rem; color: #7f8c6b;"></i>
+  <i class="fas fa-map-pin" style="animation: petalFall 4s ease-in-out 1s infinite; font-size: 1.5rem; color: #b8860b; margin-left: 25px;"></i>
+  <i class="fas fa-compass" style="animation: petalFall 4s ease-in-out 2s infinite; font-size: 1.6rem; color: #4a7c59; margin-left: 8px;"></i>
+  <i class="fas fa-globe-asia" style="animation: petalFall 4s ease-in-out 3s infinite; font-size: 1.4rem; color: #5b8c85; margin-left: 30px;"></i>
+</div>
+
+<!-- 右侧装饰 - 彩色旋转图标 -->
+<div class="hero-decoration-right" style="position: absolute; right: 50px; top: 50%; transform: translateY(-50%); z-index: 1; display: flex; flex-direction: column; gap:28px;">
+  <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.7); border-radius: 16px; display: flex; align-items: center; justify-content: center; animation: gentleRotate 8s linear infinite; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+    <i class="fas fa-mountain" style="font-size: 1.5rem; color: #6b8c42;"></i>
+  </div>
+  <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.7); border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: gentleRotate 10s linear infinite reverse; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+    <i class="fas fa-tree" style="font-size: 1.2rem; color: #4a7c59;"></i>
+  </div>
+  <div style="width: 54px; height: 54px; background: rgba(255,255,255,0.7); border-radius: 12px; display: flex; align-items: center; justify-content: center; animation: gentleRotate 9s linear infinite; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+    <i class="fas fa-sun" style="font-size: 1.4rem; color: #d4a574;"></i>
+  </div>
+</div>
+
+<!-- 顶部装饰 - 彩色小图标 -->
+<div class="hero-decoration-top" style="position: absolute; top:25px; right: 22%; z-index: 1; display: flex; gap: 28px; pointer-events: none;">
+  <i class="fas fa-star" style="animation: twinkle 2s ease-in-out infinite; font-size: 1rem; color: #d4a574;"></i>
+  <i class="fas fa-heart" style="animation: twinkle 2s ease-in-out 0.5s infinite; font-size: 0.85rem; color: #c47f6b;"></i>
+  <i class="fas fa-circle" style="animation: twinkle 2s ease-in-out 1s infinite; font-size: 0.7rem; color: #7f8c6b;"></i>
+  <i class="fas fa-star" style="animation: twinkle 2s ease-in-out 1.5s infinite; font-size: 0.9rem; color: #b8860b;"></i>
+</div>
+<!-- 标题内容层 -->
+  <div style="position: relative; z-index: 2;">
+    <div class="hero-tag">✨ 2026冬季游学 · 现已开放报名</div>
+    <h1>
+      在<span class="highlight">拾光</span>里，<br>收藏世界的成长光影
+    </h1>
+    <p>
+      专为国际学生设计的文化沉浸体验 · 小班探索 · 中文环境 · 跨文化交流
+    </p >
+    <a href=" " class="cta-button"><i class="fas fa-compass"></i> 探索游学项目</a >
+  </div>
+</section>
+
+<!-- 照片墙装饰动画样式 -->
+<style>
+  @keyframes gentleRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes petalFall {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    50% { transform: translateY(-15px) rotate(10deg); opacity: 1; }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+</style>
+
+<!-- 拾光瞬间：视频 + 照片展示 -->
+<div class="gallery-section">
+ <div style="display: flex; align-items: center; justify-content: space-between;">
+  <div class="section-title" style="margin-bottom: 0;"><i class="fas fa-images"></i> 拾光瞬间</div>
+<button onclick="openBottle()" style="padding: 10px 20px; background: linear-gradient(135deg, #7f8c6b, #5a6e5f); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 12px rgba(127,140,107,0.3); transition: all 0.3s;"
+onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<i class="fas fa-wine-bottle"></i> 漂流瓶
+</button>
+</div>
+  <div class="subhead">
+    每一帧画面，都是游学旅程中真实的故事。来自世界各地的学生，在"拾光"共同书写回忆。
+  </div>
+
+  <!-- 视频区域 - 自动循环播放 -->
+  <div style="margin-bottom: 30px; border-radius: 24px; overflow: hidden; box-shadow: 0 12px 28px rgba(0,0,0,0.08);">
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+      style="width: 100%; height: auto; max-height: 500px; object-fit: cover; display: block;"
+      poster="https://placehold.co/1200x500/3a4e3f/ffffff?text=拾光·游学视频">
+      <source src="你的视频文件名.mp4" type="video/mp4">
+      你的浏览器不支持视频播放，请升级浏览器。
+    </video>
+    <div style="background: white; padding: 16px 20px; display: flex; align-items: center; gap: 10px;">
+      <i class="fas fa-play-circle" style="color: #7f8c6b; font-size: 1.3rem;"></i>
+      <span style="font-weight: 500; color: #2b3b2c;">拾光游学 · 精彩回顾</span>
+      <span style="margin-left: auto; font-size: 0.85rem; color: #6b705c;">自动循环播放</span>
+    </div>
+  </div>
+
+  <!-- 照片卡片 - 背景为对应地点图片 -->
+  <div class="photo-grid">
+  <!-- 卡片1：深圳 -->
+<div class="photo-card" onclick="openCityDetail('shenzhen')" style="cursor: pointer; background-image: url('shenzhen.jpg'); background-size: cover; background-position: center; position: relative; min-height: 300px;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); border-radius: 24px;"></div>
+  <div class="card-content" style="position: relative; z-index: 2; margin-top: auto; background: transparent; color: white; padding: 24px 20px;">
+    <h4 style="color: white;">体验前沿科创</h4>
+    <div class="location" style="color: #e0dbd0;"><i class="fas fa-map-pin"></i> 深圳 · 科创硅谷</div>
+    <p style="color: #f0ede6;">穿越未来之都，畅游科创新海</p >
+  </div>
+</div>
+
+<!-- 卡片2：哈尔滨 -->
+<div class="photo-card" onclick="openCityDetail('haerbin')" style="cursor: pointer; background-image: url('haerbib.jpg'); background-size: cover; background-position: center; position: relative; min-height: 300px;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); border-radius: 24px;"></div>
+  <div class="card-content" style="position: relative; z-index: 2; margin-top: auto; background: transparent; color: white; padding: 24px 20px;">
+    <h4 style="color: white;">探寻冰雪王国</h4>
+    <div class="location" style="color: #e0dbd0;"><i class="fas fa-map-pin"></i> 哈尔滨 · 冰雪王国</div>
+    <p style="color: #f0ede6;">畅游极地世界，纵横冰雪天地</p >
+  </div>
+</div>
+
+<!-- 卡片3：洛阳 -->
+<div class="photo-card" onclick="openCityDetail('luoyang')" style="cursor: pointer; background-image: url('luoyamg.jpg'); background-size: cover; background-position: center; position: relative; min-height: 300px;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); border-radius: 24px;"></div>
+  <div class="card-content" style="position: relative; z-index: 2; margin-top: auto; background: transparent; color: white; padding: 24px 20px;">
+    <h4 style="color: white;">感悟千年帝都</h4>
+    <div class="location" style="color: #e0dbd0;"><i class="fas fa-map-pin"></i> 洛阳 · 钟灵毓秀</div>
+    <p style="color: #f0ede6;">骑行隋唐城遗址，漫步洛浦公园，感悟千古之都。</p >
+  </div>
+</div>
+
+<!-- 卡片4：韩国北区 -->
+<div class="photo-card" onclick="openCityDetail('korea')" style="cursor: pointer; background-image: url('110.jpg'); background-size: cover; background-position: center; position: relative; min-height: 300px;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); border-radius: 24px;"></div>
+  <div class="card-content" style="position: relative; z-index: 2; margin-top: auto; background: transparent; color: white; padding: 24px 20px;">
+    <h4 style="color: white;">韩国北区 · 经典之旅</h4>
+    <div class="location" style="color: #e0dbd0;"><i class="fas fa-map-pin"></i> 仁川 · 首尔 · 釜山</div>
+    <p style="color: #f0ede6;">仁川登陆，首尔穿越，釜山海云台，K-culture深度体验。</p >
+  </div>
+</div>
+
+<!-- 卡片5：韩国南区 -->
+<div class="photo-card" onclick="openCityDetail('jeju')" style="cursor: pointer; background-image: url('102.jpg'); background-size: cover; background-position: center; position: relative; min-height: 300px;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); border-radius: 24px;"></div>
+  <div class="card-content" style="position: relative; z-index: 2; margin-top: auto; background: transparent; color: white; padding: 24px 20px;">
+    <h4 style="color: white;">韩国南区 · 海岛风情</h4>
+    <div class="location" style="color: #e0dbd0;"><i class="fas fa-map-pin"></i> 济州岛</div>
+    <p style="color: #f0ede6;">汉拿山徒步，偶来小路，海女文化，火山海岛奇遇。</p >
+  </div>
+</div>
+
+<!-- 卡片6：更多目的地 -->
+<div class="photo-card" style="background-image: url('103.jpg'); background-size: cover; background-position: center; position: relative; min-height: 300px;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); border-radius: 24px;"></div>
+  <div class="card-content" style="position: relative; z-index: 2; margin-top: auto; background: transparent; color: white; padding: 24px 20px;">
+    <h4 style="color: white;">更多目的地</h4>
+    <div class="location" style="color: #e0dbd0;"><i class="fas fa-globe-asia"></i> 即将上线</div>
+    <p style="color: #f0ede6;">更多精彩游学线路探索中……</p >
+  </div>
+</div>
+
+<!-- 卡片7：探索奇幻世界 · 心愿墙 -->
+<div class="photo-card" onclick="openWishWall()" style="cursor: pointer; background-image: url('ouzhou.jpg'); background-size: cover; background-position: center; position: relative; min-height: 300px;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); border-radius: 24px;"></div>
+  <div class="card-content" style="position: relative; z-index: 2; margin-top: auto; background: transparent; color: white; padding: 24px 20px;">
+    <h4 style="color: white;">探索奇幻世界</h4>
+    <div class="location" style="color: #e0dbd0;"><i class="fas fa-pencil-alt"></i> 你向往的探索地点…</div>
+            <p style="color: #f0ede6;">走遍世界的每一个角落</p >
+          </div>
+        </div>
+  </div>
+</div>
+<!-- 广告区块：专为外国学生设计的卖点 -->
+<div class="features-ad">
+  <div class="feature-text">
+    <h2>为什么选择"拾光"？</h2>
+    <ul class="feature-list">
+      <li><i class="fas fa-check-circle"></i> 当地与中国教师陪同， 沉浸中文环境</li>
+      <li><i class="fas fa-check-circle"></i>团队深度体验 ，提升学生交流能力</li>
+      <li><i class="fas fa-check-circle"></i> 优质住宿 &当地趣味文化活动</li>
+      <li><i class="fas fa-check-circle"></i>多种著名景点，感受地方风情 </li>
+      <li><i class="fas fa-check-circle"></i>团队保证学生安全</li>
+    </ul>
+  </div>
+  <div class="ad-badge">
+    <i class="fas fa-gem" style="font-size: 2rem; color: #7f8c6b; margin-bottom: 8px;"></i>
+    <div class="price">¥****</div>
+    <small>起 / 10天游学套餐</small>
+    <p style="margin: 12px 0; color: #2e2e2e;">含住宿·游玩·特色活动</p >
+    <button class="btn-outline" onclick="openBrochure()"><i class="fas fa-paper-plane"></i> 获取行程手册</button>
+    <p style="font-size: 0.75rem; margin-top: 12px; color: #6b705c;">优惠进行中</p >
+    <button class="btn-outline" onclick="openPuzzle()" style="margin-top: 8px; width: 100%;"><i class="fas fa-puzzle-piece"></i> 游学拼图</button>
+  </div>
+</div>
+
+<!-- 行程预览 -->
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+  <div class="section-title" style="margin-bottom: 0;"><i class="fas fa-calendar-alt"></i> 推荐游学节奏</div>
+  <div style="display: flex; gap: 6px; align-items: center;">
+    <span style="font-size: 0.75rem; color: #6b705c; margin-right: 4px;">护照印章</span>
+    <div class="stamp-inline" id="stampSZ"><i class="fas fa-robot"></i></div>
+    <div class="stamp-inline" id="stampHEB"><i class="far fa-snowflake"></i></div>
+    <div class="stamp-inline" id="stampLY"><i class="fas fa-landmark"></i></div>
+    <div class="stamp-inline" id="stampSH"><i class="fas fa-city"></i></div>
+  </div>
+</div>
+<div class="itinerary">
+  <div class="itin-card" onclick="openDetail('culture')" style="cursor: pointer;">
+    <i class="fas fa-landmark"></i><h4>文化沉浸</h4><p>中国风特色趣味手作</p >
+  </div>
+  <div class="itin-card" onclick="openDetail('food')" style="cursor: pointer;">
+    <i class="fas fa-utensils"></i><h4>美食寻访</h4><p>畅享街头特色美食</p >
+  </div>
+  <div class="itin-card" onclick="openDetail('nature')" style="cursor: pointer;">
+    <i class="fas fa-hiking"></i><h4>自然户外</h4><p>登山，徒步</p >
+  </div>
+  <div class="itin-card" onclick="openDetail('language')" style="cursor: pointer;">
+    <i class="fas fa-comments"></i><h4>语言交换</h4><p>中文氛围渲染，互动</p >
+  </div>
+</div>
+<!-- 页脚 -->
+    <footer class="footer">
+      <div>
+        <strong>拾光 · TimeGlow</strong><br>
+        <span style="font-size:0.9rem;">拾光导航 | 为你与世界搭建桥梁</span>
+      </div>
+      <div style="display: flex; gap: 24px; align-items: center;">
+        <span><i class="far fa-envelope"></i> hello@timeglow.cn</span>
+        <span><i class="fab fa-instagram"></i> timeglow.study</span>
+        <span style="font-size:0.9rem;">© 2026 拾光游学</span>
+      </div>
+    </footer>
+  </div>
+<!-- 悬浮互动球 -->
+<style>
+  .float-balls-container {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 999;
+}
+  .float-ball {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .float-ball i {
+    font-size: 1.5rem;
+  }
+
+  .float-ball:hover {
+    transform: scale(1.15);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+  }
+
+  .ball-shenzhen {
+    background: linear-gradient(135deg, #00bcd4, #0097a7);
+    animation-delay: 0s;
+  }
+
+  .ball-haerbin {
+    background: linear-gradient(135deg, #90caf9, #42a5f5);
+    animation-delay: 0.5s;
+  }
+
+  .ball-luoyang {
+    background: linear-gradient(135deg, #d4a574, #b8860b);
+    animation-delay: 1s;
+  }
+
+  .ball-shanghai {
+    background: linear-gradient(135deg, #ffb74d, #f57c00);
+    animation-delay: 1.5s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .ball-tooltip {
+    position: absolute;
+    right: 70px;
+    background: white;
+    color: #2e2e2e;
+    padding: 14px 18px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+    font-weight: 500;
+  }
+
+  .ball-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 8px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+
+  .float-ball.active .ball-tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltip-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #3a4e3f;
+  }
+
+  .tooltip-desc {
+    color: #6b705c;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 640px) {
+    .float-balls-container {
+      bottom: 20px;
+      right: 16px;
+      gap: 12px;
+    }
+    .float-ball {
+      width: 48px;
+      height: 48px;
+    }
+    .float-ball i {
+      font-size: 1.2rem;
+    }
+    .ball-tooltip {
+      right: 58px;
+      padding: 10px 14px;
+    }
+  }
+</style>
+
+<div class="float-balls-container">
+  <!-- 深圳球 - 机器人 -->
+  <div class="float-ball ball-shenzhen" onclick="toggleBall(this)" data-city="shenzhen">
+    <i class="fas fa-robot"></i>
+    <div class="ball-tooltip">
+      <div class="tooltip-title">深圳 · 创新之都</div>
+      <div class="tooltip-desc">探索中国硅谷的科技魅力</div>
+    </div>
+  </div>
+
+  <!-- 哈尔滨球 - 雪花 -->
+  <div class="float-ball ball-haerbin" onclick="toggleBall(this)" data-city="haerbin">
+    <i class="far fa-snowflake"></i>
+    <div class="ball-tooltip">
+      <div class="tooltip-title">哈尔滨 · 冰城夏都</div>
+      <div class="tooltip-desc">感受北国冰雪世界的奇幻之美</div>
+    </div>
+  </div>
+
+  <!-- 洛阳球 - 石窟 -->
+  <div class="float-ball ball-luoyang" onclick="toggleBall(this)" data-city="luoyang">
+    <i class="fas fa-landmark"></i>
+    <div class="ball-tooltip">
+      <div class="tooltip-title">洛阳 · 千年古都</div>
+      <div class="tooltip-desc">龙门石窟与牡丹花城的盛世风华</div>
+    </div>
+  </div>
+
+  <!-- 世界探索+ -->
+  <div class="float-ball ball-shanghai" onclick="toggleBall(this)" data-city="shanghai">
+    <i class="fas fa-city"></i>
+    <div class="ball-tooltip">
+      <div class="tooltip-title">探索世界</div>
+      <div class="tooltip-desc">走遍世界每一个角落</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleBall(ball) {
+    document.querySelectorAll('.float-ball').forEach(b => {
+      if (b !== ball) {
+        b.classList.remove('active');
+      }
+    });
+    ball.classList.toggle('active');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.float-ball')) {
+      document.querySelectorAll('.float-ball').forEach(b => {
+        b.classList.remove('active');
+      });
+    }
+  });
+</script>
+<!-- 行程手册弹窗 -->
+<style>
+  .brochure-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brochure-overlay.show {
+    display: flex;
+  }
+
+  .brochure-panel {
+    background: #faf9f6;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    position: relative;
+    padding: 40px 36px;
+  }
+
+  .brochure-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #6b705c;
+    transition: color 0.2s;
+  }
+
+  .brochure-close:hover {
+    color: #3a4e3f;
+  }
+
+  .brochure-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .brochure-header h2 {
+    font-size: 2rem;
+    color: #3a4e3f;
+    font-weight: 700;
+  }
+
+  .brochure-header .subtitle {
+    color: #7f8c6b;
+    font-weight: 500;
+    margin-top: 6px;
+  }
+
+  .brochure-day {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    border-left: 5px solid #7f8c6b;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  }
+
+  .brochure-day h4 {
+    font-size: 1.15rem;
+    color: #3a4e3f;
+    margin-bottom: 8px;
+  }
+
+  .brochure-day .time {
+    font-size: 0.85rem;
+    color: #7f8c6b;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .brochure-day p {
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+  }
+
+  .brochure-footer {
+    text-align: center;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #e0dbd0;
+    color: #6b705c;
+    font-size: 0.9rem;
+  }
+
+  .brochure-footer i {
+    color: #7f8c6b;
+    margin: 0 4px;
+  }
+</style>
+
+<div class="brochure-overlay" id="brochureOverlay">
+  <div class="brochure-panel">
+    <button class="brochure-close" onclick="closeBrochure()">&times;</button>
+
+    <div class="brochure-header">
+      <h2>📋 拾光 · 10天游学行程手册</h2>
+      <div class="subtitle">TIMEGLOW · 2026 冬季游学计划</div>
+    </div>
+
+    <div class="brochure-day">
+      <h4>第1天 · 抵达与欢迎</h4>
+      <div class="time">🕐 全天</div>
+      <p>抵达深圳，接机入住。晚上参加欢迎晚宴，认识来自世界各地的伙伴，了解行程安排。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第2天 · 深圳科技探索</h4>
+      <div class="time">🕐 09:00 - 17:00</div>
+      <p>参观腾讯总部、华强北电子市场，感受"中国硅谷"的创新脉搏。下午参加机器人工作坊。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第3天 · 深圳人文漫步</h4>
+      <div class="time">🕐 09:00 - 16:00</div>
+      <p>探访南头古城、华侨城创意园，体验深圳的文化艺术氛围。晚上品尝粤式美食。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第4天 · 飞往哈尔滨</h4>
+      <div class="time">🕐 上午航班</div>
+      <p>乘飞机前往哈尔滨。下午漫步中央大街，感受欧陆风情建筑，品尝马迭尔冰棍。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第5天 · 冰雪奇缘</h4>
+      <div class="time">🕐 全天</div>
+      <p>参观冰雪大世界（夏季为室内冰雪馆），体验冰滑梯与雪雕艺术。晚上学习东北秧歌。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第6天 · 哈尔滨文化日</h4>
+      <div class="time">🕐 09:00 - 16:00</div>
+      <p>参观圣索菲亚教堂、黑龙江省博物馆。下午参加俄式文化体验课，制作传统工艺品。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第7天 · 前往洛阳</h4>
+      <div class="time">🕐 上午高铁</div>
+      <p>乘高铁前往洛阳。下午参观龙门石窟，惊叹千年石刻艺术的宏伟壮丽。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第8天 · 洛阳古城探秘</h4>
+      <div class="time">🕐 全天</div>
+      <p>游览白马寺、洛阳博物馆。下午体验唐三彩制作，亲手创造属于自己的唐代色彩。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第9天 · 抵达上海</h4>
+      <div class="time">🕐 上午高铁</div>
+      <p>乘高铁抵达上海。下午漫步外滩与南京路，晚上登东方明珠塔俯瞰璀璨夜景。</p >
+    </div>
+
+    <div class="brochure-day">
+      <h4>第10天 · 告别与归程</h4>
+      <div class="time">🕐 全天</div>
+      <p>上午自由探索田子坊艺术区。下午举行结营仪式，颁发游学证书。晚上送机返程。</p >
+    </div>
+
+    <div class="brochure-footer">
+      <p><i class="fas fa-envelope"></i> hello@timeglow.cn  |  <i class="fas fa-phone"></i> +86 18745382821</p >
+      <p style="margin-top: 6px;">拾光游学 · TimeGlow © 2026</p >
+    </div>
+  </div>
+</div>
+
+<script>
+  function openBrochure() {
+    document.getElementById('brochureOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+function closeBrochure() {
+  document.getElementById('brochureOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function openDetail(type) {
+  document.getElementById(type + 'Overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  if (type === 'culture') earnStamp('shenzhen');
+  if (type === 'food') earnStamp('haerbin');
+  if (type === 'nature') earnStamp('luoyang');
+  if (type === 'language') earnStamp('world');
+}
+
+function closeDetail(type) {
+  document.getElementById(type + 'Overlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function openCityDetail(city) {
+  document.getElementById('city' + city.charAt(0).toUpperCase() + city.slice(1) + 'Overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCityDetail(city) {
+  document.getElementById('city' + city.charAt(0).toUpperCase() + city.slice(1) + 'Overlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+let likeCount = 0;
+function addLike() {
+  likeCount++;
+  document.getElementById('likeCount').textContent = likeCount;
+}
+let foodLikeCount = 0;
+function addFoodLike() {
+  foodLikeCount++;
+  document.getElementById('foodLikeCount').textContent = foodLikeCount;
+}
+let natureLikeCount = 0;
+function addNatureLike() {
+  natureLikeCount++;
+  document.getElementById('natureLikeCount').textContent = natureLikeCount;
+}
+let languageLikeCount = 0;
+function addLanguageLike() {
+  languageLikeCount++;
+  document.getElementById('languageLikeCount').textContent = languageLikeCount;
+}
+document.getElementById('brochureOverlay').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeBrochure();
+  }
+});
+
+document.querySelectorAll('.detail-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      const type = this.id.replace('Overlay', '');
+      closeDetail(type);
+    }
+  });
+});
+</script>
+<!-- 游学节奏详情弹窗样式 V2 -->
+<style>
+  .detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20,20,20,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .detail-overlay.show {
+    display: flex;
+  }
+
+  .detail-panel {
+    background: #fefcf7;
+    border-radius: 32px;
+    width: 95%;
+    max-width: 1100px;
+    max-height: 92vh;
+    overflow-y: auto;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+    position: relative;
+    padding: 0;
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .detail-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #3a4e3f;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  }
+
+  .detail-close:hover {
+    background: #5a6e5f;
+    transform: rotate(90deg);
+  }
+
+  /* 顶部大图区域 */
+  .detail-hero {
+    width: 100%;
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 32px 32px 0 0;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .detail-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
+    border-radius: 0 0 0 0;
+  }
+
+  .detail-hero-content {
+    position: absolute;
+    bottom: 28px;
+    left: 36px;
+    z-index: 2;
+    color: white;
+  }
+
+  .detail-hero-content .hero-icon {
+    font-size: 2.8rem;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+  }
+
+  .detail-hero-content h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    margin: 0;
+  }
+
+  /* 内容主体 */
+  .detail-body {
+    padding: 36px 40px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  /* 左侧文字 */
+.detail-text-col {
+  flex: 1 1 300px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+  .detail-text-col .section-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #7f8c6b;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .detail-text-col .section-label i {
+    font-size: 0.7rem;
+    color: #b8860b;
+  }
+
+  .detail-intro {
+    font-size: 1.08rem;
+    color: #3a3a3a;
+    line-height: 2;
+    text-align: justify;
+    position: relative;
+    padding-left: 20px;
+    border-left: 3px solid #d4c5a0;
+  }
+
+  .detail-intro::first-letter {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #7f8c6b;
+    float: left;
+    line-height: 1;
+    margin-right: 10px;
+    margin-top: 6px;
+  }
+
+  /* 右侧图片墙 */
+  .detail-photo-col {
+    flex: 1 1 400px;
+    min-width: 300px;
+  }
+
+  .detail-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+
+  .detail-photo-grid .photo-item {
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .detail-photo-grid .photo-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    transition: background 0.3s;
+    border-radius: 10px;
+  }
+
+  .detail-photo-grid .photo-item:hover {
+    transform: scale(1.12);
+    z-index: 5;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  }
+
+  .detail-photo-grid .photo-item:hover::after {
+    background: rgba(0,0,0,0.1);
+  }
+
+  /* 大图预览 */
+  .photo-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .photo-lightbox.show {
+    display: flex;
+  }
+
+  .photo-lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease-out;
+  }
+
+  @keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* 底部装饰条 */
+  .detail-footer-bar {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5dfd3;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #6b705c;
+    font-size: 0.85rem;
+  }
+
+  .detail-footer-bar .tag {
+    background: #f0ede6;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #3a4e3f;
+  }
+
+  .detail-footer-bar .tag i {
+        color: #7f8c6b;
+      }
+/* 翻转卡片 */
+.fun-flip-card {
+  width: 100%;
+  height: 80px;
+  perspective: 600px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.fun-flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.flip-front {
+  background: linear-gradient(135deg, #f0ede6, #e9e4d8);
+  color: #3a4e3f;
+  border: 2px dashed #c8ceb7;
+}
+
+.flip-front i {
+  font-size: 1.3rem;
+  color: #b8860b;
+}
+
+.flip-back {
+  background: #3a4e3f;
+  color: #fefcf7;
+  transform: rotateY(180deg);
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* 互动计数 */
+.fun-counter {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f0ede6;
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+
+.counter-icon {
+  font-size: 1.5rem;
+  color: #c47f6b;
+}
+
+.counter-info {
+  flex: 1;
+}
+
+.counter-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3a4e3f;
+}
+
+.counter-label {
+  font-size: 0.8rem;
+  color: #6b705c;
+  display: block;
+}
+
+.counter-btn {
+  background: #3a4e3f;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.counter-btn:hover {
+  background: #5a6e5f;
+}
+      @media (max-width: 768px) {
+        .detail-body {
+          flex-direction: column;
+          padding: 24px 20px;
+        }
+        .detail-hero {
+          height: 180px;
+        }
+        .detail-hero-content h2 {
+          font-size: 1.6rem;
+        }
+        .detail-photo-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 6px;
+        }
+      }
+    </style>
+ <!-- 文化沉浸弹窗 -->
+<div class="detail-overlay" id="cultureOverlay">
+  <div class="detail-panel">
+    <button class="detail-close" onclick="closeDetail('culture')">&times;</button>
+    <div class="detail-hero" style="background-image: url('https://placehold.co/1200x400/3a4e3f/fefcf7?text=文化沉浸·龙门石窟');">
+      <div class="detail-hero-content">
+        <div class="hero-icon"><i class="fas fa-landmark"></i></div>
+        <h2>文化沉浸</h2>
+      </div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-text-col">
+        <div class="section-label"><i class="fas fa-circle"></i> 深度体验</div>
+        <div class="detail-intro">
+          文化沉浸是拾光游学最核心的体验模块。我们带领学生走进中国深厚的历史与文化现场，从博物馆的珍贵文物到街头巷尾的非遗手作，每一处都是一堂生动的文化课。在深圳，你可以探访南头古城，感受改革开放前沿的城市记忆；在哈尔滨，圣索菲亚教堂的穹顶下聆听百年回响；在洛阳，龙门石窟的万千造像让你与北魏盛唐对话；在上海，外滩的万国建筑群讲述着东方巴黎的传奇。我们不只是参观，更邀请当地匠人带领学生亲手体验：制作唐三彩、书写毛笔字、剪纸、拓印年画……让文化从眼睛走进指尖，从记忆变成体验。
+        </div>
+        <div class="detail-footer-bar">
+          <span class="tag"><i class="fas fa-map-pin"></i> 深圳·哈尔滨·洛阳·上海</span>
+          <span class="tag"><i class="fas fa-clock"></i> 10天深度体验</span>
+          <span class="tag"><i class="fas fa-user-friends"></i> 6-12人小团</span>
+        </div>
+<!-- 趣味翻转卡片 -->
+<div class="fun-flip-card">
+  <div class="flip-inner">
+    <div class="flip-front">
+      <i class="fas fa-lightbulb"></i>
+      <span>你知道吗？</span>
+    </div>
+    <div class="flip-back">
+      <p>龙门石窟有超过10万尊佛像，最小的只有2厘米！</p >
+    </div>
+  </div>
+</div>
+
+<!-- 互动计数 -->
+<div class="fun-counter">
+  <div class="counter-icon"><i class="fas fa-heart"></i></div>
+  <div class="counter-info">
+    <span class="counter-number" id="likeCount">0</span>
+    <span class="counter-label">人觉得有趣</span>
+  </div>
+  <button class="counter-btn" onclick="addLike()">
+    <i class="fas fa-thumbs-up"></i> 点赞
+  </button>
+</div>
+      </div>
+      <div class="detail-photo-col">
+        <div class="detail-photo-grid">
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文1');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文2');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文3');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=文4');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文5');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文6');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文7');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=文8');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文9');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文10');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文11');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=文12');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文13');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文14');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文15');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=文16');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文17');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文18');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文19');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=文20');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文21');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文22');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文23');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=文24');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文25');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文26');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文27');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=文28');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文29');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文30');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文31');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=文32');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=文33');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=文34');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=文35');"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- 美食寻访弹窗 -->
+<div class="detail-overlay" id="foodOverlay">
+  <div class="detail-panel">
+    <button class="detail-close" onclick="closeDetail('food')">&times;</button>
+    <div class="detail-hero" style="background-image: url('https://placehold.co/1200x400/c47f6b/fefcf7?text=美食寻访·中华料理');">
+      <div class="detail-hero-content">
+        <div class="hero-icon"><i class="fas fa-utensils"></i></div>
+        <h2>美食寻访</h2>
+      </div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-text-col">
+        <div class="section-label"><i class="fas fa-circle"></i> 舌尖上的盛宴</div>
+        <div class="detail-intro">
+         美食盛宴— — 深圳作为移民城市，从广式早茶到潮汕牛肉火锅，从街边肠粉到高端粤菜，每一餐都是一次味觉冒险。哈尔滨的俄式西餐与东北炖菜交相辉映，马迭尔冰棍、秋林红肠、铁锅炖，让冰城充满温暖。洛阳的水席堪称一绝，二十四道菜肴如流水般端上桌；一碗地道的牛肉汤配上烧饼，是清晨最美的唤醒方式。上海的本帮菜浓油赤酱，小笼包、生煎馒头、葱油拌面，中西合璧让人流连忘返。每个城市我们都安排了烹饪课堂，让美食成为可以带回家的技艺。
+        </div>
+        <div class="detail-footer-bar">
+          <span class="tag"><i class="fas fa-map-pin"></i> 四城风味之旅</span>
+          <span class="tag"><i class="fas fa-clock"></i> 每日美食探索</span>
+          <span class="tag"><i class="fas fa-fire"></i> 烹饪体验课</span>
+        </div>
+        <!-- 趣味翻转卡片 -->
+        <div class="fun-flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <i class="fas fa-lightbulb"></i>
+              <span>你知道吗？</span>
+            </div>
+            <div class="flip-back">
+              <p>洛阳水席共有24道菜，8凉16热，汤汤水水间藏着大唐风韵！</p >
+            </div>
+          </div>
+        </div>
+        <!-- 互动计数 -->
+        <div class="fun-counter">
+          <div class="counter-icon"><i class="fas fa-heart"></i></div>
+          <div class="counter-info">
+            <span class="counter-number" id="foodLikeCount">0</span>
+            <span class="counter-label">人觉得有趣</span>
+          </div>
+          <button class="counter-btn" onclick="addFoodLike()">
+            <i class="fas fa-thumbs-up"></i> 点赞
+          </button>
+        </div>
+      </div>
+      <div class="detail-photo-col">
+        <div class="detail-photo-grid">
+          <div class="photo-item" style="background-image: url('104.jpg');"></div>
+          <div class="photo-item" style="background-image: url('105.jpg');"></div>
+          <div class="photo-item" style="background-image: url('106.jpg');"></div>
+          <div class="photo-item" style="background-image: url('107.jpg');"></div>
+          <div class="photo-item" style="background-image: url('108.jpg');"></div>
+          <div class="photo-item" style="background-image: url('109.jpg');"></div>
+          <div class="photo-item" style="background-image: url('120.jpg');"></div>
+          <div class="photo-item" style="background-image: url('121.jpg');"></div>
+          <div class="photo-item" style="background-image: url('122.jpg');"></div>
+          <div class="photo-item" style="background-image: url('123.jpg');"></div>
+          <div class="photo-item" style="background-image: url('124.jpg');"></div>
+          <div class="photo-item" style="background-image: url('125.jpg');"></div>
+          <div class="photo-item" style="background-image: url('126.jpg');"></div>
+          <div class="photo-item" style="background-image: url('127.jpg');"></div>
+          <div class="photo-item" style="background-image: url('128.jpg');"></div>
+          <div class="photo-item" style="background-image: url('129.jpg');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=食17');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=食18');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=食19');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=食20');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=食21');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=食22');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=食23');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=食24');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=食25');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=食26');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=食27');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=食28');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=食29');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=食30');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=食31');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=食32');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=食33');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=食34');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=食35');"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- 自然户外弹窗 -->
+<div class="detail-overlay" id="natureOverlay">
+  <div class="detail-panel">
+    <button class="detail-close" onclick="closeDetail('nature')">&times;</button>
+    <div class="detail-hero" style="background-image: url('https://placehold.co/1200x400/4a7c59/fefcf7?text=自然户外·山水之间');">
+      <div class="detail-hero-content">
+        <div class="hero-icon"><i class="fas fa-hiking"></i></div>
+        <h2>自然户外</h2>
+      </div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-text-col">
+        <div class="section-label"><i class="fas fa-circle"></i> 行走山水间</div>
+        <div class="detail-intro">
+          自深圳的海岸线至哈尔滨的松花江畔，从洛阳的龙门山色到上海的黄浦江滨，拾光的自然户外模块带你用脚步丈量中国的大好河山。在深圳，我们徒步大鹏半岛，穿越东西涌海岸线，感受碧海蓝天的壮阔；在哈尔滨，漫步太阳岛湿地，乘船游览松花江，夏季的微风拂面而来；在洛阳，攀登龙门山，俯瞰伊河两岸的石窟奇观与层峦叠翠；在上海，骑行滨江大道，穿梭于世纪公园的绿荫之中。每一次户外探索都有专业领队全程陪同，配备安全保障设备。我们不只是走路，更在自然中学习：辨认植物、观察候鸟、了解地质变迁……让大自然成为最生动的课堂。
+        </div>
+        <div class="detail-footer-bar">
+          <span class="tag"><i class="fas fa-map-pin"></i> 四城户外精选</span>
+          <span class="tag"><i class="fas fa-shield-alt"></i> 专业安全保障</span>
+          <span class="tag"><i class="fas fa-leaf"></i> 生态环保理念</span>
+        </div>
+        <div class="fun-flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <i class="fas fa-lightbulb"></i>
+              <span>你知道吗？</span>
+            </div>
+            <div class="flip-back">
+              <p>深圳东西涌海岸线被《国家地理》评为中国最美海岸线之一！</p >
+            </div>
+          </div>
+        </div>
+        <div class="fun-counter">
+          <div class="counter-icon"><i class="fas fa-heart"></i></div>
+          <div class="counter-info">
+            <span class="counter-number" id="natureLikeCount">0</span>
+            <span class="counter-label">人觉得有趣</span>
+          </div>
+          <button class="counter-btn" onclick="addNatureLike()">
+            <i class="fas fa-thumbs-up"></i> 点赞
+          </button>
+        </div>
+      </div>
+      <div class="detail-photo-col">
+        <div class="detail-photo-grid">
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户1');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户2');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户3');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=户4');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户5');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户6');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户7');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=户8');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户9');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户10');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户11');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=户12');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户13');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户14');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户15');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=户16');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户17');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户18');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户19');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=户20');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户21');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户22');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户23');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=户24');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户25');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户26');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户27');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=户28');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户29');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户30');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户31');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=户32');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=户33');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=户34');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=户35');"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- 语言交换弹窗 -->
+<div class="detail-overlay" id="languageOverlay">
+  <div class="detail-panel">
+    <button class="detail-close" onclick="closeDetail('language')">&times;</button>
+    <div class="detail-hero" style="background-image: url('https://placehold.co/1200x400/5b8c85/fefcf7?text=语言交换·跨文化交流');">
+      <div class="detail-hero-content">
+        <div class="hero-icon"><i class="fas fa-comments"></i></div>
+        <h2>语言交换</h2>
+      </div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-text-col">
+        <div class="section-label"><i class="fas fa-circle"></i> 以言会友</div>
+        <div class="detail-intro">
+          语言交换是拾光游学最具活力的互动环节。我们为外国学生配对本地学伴，在真实的语境中练习中文，同时也让中国学生锻炼英语能力。在深圳，我们走进深圳大学的校园，与大学生进行面对面交流；在哈尔滨，俄语角的独特氛围让语言学习多了几分异域风情；在洛阳，与当地匠人学习传统工艺时，方言与普通话的碰撞让交流充满趣味；在上海，国际化社区里的语言角汇聚着来自世界各地的声音。每天傍晚的分享会上，学生们用新学的词汇讲述当天的见闻，从结结巴巴到流畅表达，每一天都在进步。我们还设计了趣味语言游戏：中文绕口令挑战、成语接龙、情景对话角色扮演，让语言学习变成一场欢乐的派对。
+        </div>
+        <div class="detail-footer-bar">
+          <span class="tag"><i class="fas fa-user-friends"></i> 本地学伴配对</span>
+          <span class="tag"><i class="fas fa-gamepad"></i> 趣味语言游戏</span>
+          <span class="tag"><i class="fas fa-globe"></i> 多语种交流</span>
+        </div>
+        <div class="fun-flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <i class="fas fa-lightbulb"></i>
+              <span>你知道吗？</span>
+            </div>
+            <div class="flip-back">
+              <p>全球有超过1.5亿人在学习中文，中文是联合国六种官方语言之一！</p >
+            </div>
+          </div>
+        </div>
+        <div class="fun-counter">
+          <div class="counter-icon"><i class="fas fa-heart"></i></div>
+          <div class="counter-info">
+            <span class="counter-number" id="languageLikeCount">0</span>
+            <span class="counter-label">人觉得有趣</span>
+          </div>
+          <button class="counter-btn" onclick="addLanguageLike()">
+            <i class="fas fa-thumbs-up"></i> 点赞
+          </button>
+        </div>
+      </div>
+      <div class="detail-photo-col">
+        <div class="detail-photo-grid">
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语1');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语2');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语3');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=语4');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语5');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语6');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语7');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=语8');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语9');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语10');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语11');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=语12');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语13');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语14');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语15');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=语16');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语17');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语18');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语19');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=语20');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语21');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语22');"></div>
+          <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语23');"></div>
+       <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=语24');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语25');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语26');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语27');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=语28');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语29');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语30');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语31');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/e9e4d8/3a4e3f?text=语32');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/d9d2c5/3a4e3f?text=语33');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/c8ceb7/3a4e3f?text=语34');"></div>
+              <div class="photo-item" style="background-image: url('https://placehold.co/300x300/b6ad90/3a4e3f?text=语35');"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- 城市视频弹窗 -->
+<div class="detail-overlay" id="cityVideoOverlay">
+  <div class="detail-panel" style="max-width: 800px; padding: 30px;">
+    <button class="detail-close" onclick="closeCityVideo()">&times;</button>
+    <div style="text-align: center; margin-bottom: 16px;">
+      <h3 id="cityVideoTitle" style="color: #3a4e3f; font-size: 1.5rem;"></h3>
+    </div>
+    <div style="border-radius: 16px; overflow: hidden; background: #000;">
+      <video id="cityVideo" controls style="width: 100%; display: block; max-height: 450px;" playsinline>
+        <source src="" type="video/mp4">
+        你的浏览器不支持视频播放
+      </video>
+    </div>
+    <p id="cityVideoDesc" style="text-align: center; margin-top: 14px; color: #6b705c;"></p >
+  </div>
+</div>
+
+<script>
+  const cityData = {
+    shenzhen: {
+      title: '深圳 · 创新之都',
+      video: '你的深圳视频.mp4',
+      desc: '探访中国硅谷，感受科技与创新的脉搏。从华强北到腾讯总部，年轻的活力无处不在。'
+    },
+    haerbin: {
+      title: '哈尔滨 · 冰城夏都',
+      video: '你的哈尔滨视频.mp4',
+      desc: '漫步中央大街，聆听圣索菲亚教堂的钟声，感受北国冰城的独特浪漫。'
+    },
+    luoyang: {
+      title: '洛阳 · 千年古都',
+      video: '你的洛阳视频.mp4',
+      desc: '龙门石窟的万尊佛像，白马寺的晨钟暮鼓，十三朝古都的风华依旧。'
+    },
+    shanghai: {
+      title: '上海 · 魔都魅力',
+      video: '你的上海视频.mp4',
+      desc: '外滩的万国建筑，陆家嘴的摩天大楼，传统与现代在这里完美碰撞。'
+    }
+  };
+
+  function openCityVideo(city) {
+    const data = cityData[city];
+    document.getElementById('cityVideoTitle').textContent = data.title;
+    document.getElementById('cityVideo').querySelector('source').src = data.video;
+    document.getElementById('cityVideo').load();
+    document.getElementById('cityVideoDesc').textContent = data.desc;
+    document.getElementById('cityVideoOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCityVideo() {
+    document.getElementById('cityVideoOverlay').classList.remove('show');
+    document.getElementById('cityVideo').pause();
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('cityVideoOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeCityVideo();
+    }
+  });
+</script>
+<!-- 心愿墙弹窗 -->
+<div class="detail-overlay" id="wishWallOverlay">
+  <div class="detail-panel" style="max-width: 900px; padding: 0; display: flex; flex-direction: column;">
+    <button class="detail-close" onclick="closeWishWall()">&times;</button>
+    
+    <!-- 顶部标题 -->
+    <div style="background: linear-gradient(135deg, #3a4e3f, #5a6e5f); color: white; padding: 30px 36px; border-radius: 28px 28px 0 0; text-align: center;">
+      <i class="fas fa-feather-alt" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+      <h2 style="margin: 0; font-size: 1.8rem;">拾光 · 心愿留言墙</h2>
+      <p style="margin: 8px 0 0; opacity: 0.85;">写下你的游学心愿，让世界听见你的声音</p >
+    </div>
+
+    <!-- 内容区 -->
+    <div style="display: flex; flex-wrap: wrap; min-height: 500px;">
+      <!-- 左侧：留言表单 -->
+      <div style="flex: 1 1 320px; padding: 28px; background: #fefcf7;">
+        <div style="margin-bottom: 16px;">
+          <label style="font-weight: 600; color: #3a4e3f;"><i class="fas fa-user"></i> 你的名字</label>
+          <input id="wishName" type="text" placeholder="输入你的名字..." style="width: 100%; padding: 12px; border: 2px solid #e0dbd0; border-radius: 12px; margin-top: 6px; font-size: 0.95rem; outline: none;">
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label style="font-weight: 600; color: #3a4e3f;"><i class="fas fa-globe-asia"></i> 你的国家</label>
+          <input id="wishCountry" type="text" placeholder="你来自哪里？" style="width: 100%; padding: 12px; border: 2px solid #e0dbd0; border-radius: 12px; margin-top: 6px; font-size: 0.95rem; outline: none;">
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label style="font-weight: 600; color: #3a4e3f;"><i class="fas fa-heart"></i> 你的游学心愿</label>
+          <textarea id="wishMessage" placeholder="写下你的心愿..." rows="4" style="width: 100%; padding: 12px; border: 2px solid #e0dbd0; border-radius: 12px; margin-top: 6px; font-size: 0.95rem; resize: vertical; outline: none; font-family: inherit;"></textarea>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label style="font-weight: 600; color: #3a4e3f;"><i class="fas fa-camera"></i> 上传照片（可选）</label>
+          <input id="wishPhoto" type="file" accept="image/*" style="width: 100%; padding: 10px; border: 2px dashed #e0dbd0; border-radius: 12px; margin-top: 6px; font-size: 0.9rem; background: #faf9f6;">
+        </div>
+        <button onclick="submitWish()" style="width: 100%; padding: 14px; background: #3a4e3f; color: white; border: none; border-radius: 14px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">
+          <i class="fas fa-paper-plane"></i> 发布心愿
+        </button>
+      </div>
+
+      <!-- 右侧：留言展示区 -->
+      <div style="flex: 1 1 380px; padding: 28px; background: #f5f2eb; border-radius: 0 0 28px 0; max-height: 550px; overflow-y: auto;" id="wishList">
+        <div style="text-align: center; color: #b0a89a; padding: 60px 20px;">
+          <i class="fas fa-inbox" style="font-size: 3rem; display: block; margin-bottom: 14px;"></i>
+          <p>还没有心愿留言</p >
+          <p style="font-size: 0.85rem;">成为第一个写下心愿的人吧！</p >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openWishWall() {
+    document.getElementById('wishWallOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeWishWall() {
+    document.getElementById('wishWallOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('wishWallOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeWishWall();
+  });
+
+  function submitWish() {
+    const name = document.getElementById('wishName').value.trim();
+    const country = document.getElementById('wishCountry').value.trim();
+    const message = document.getElementById('wishMessage').value.trim();
+    
+    if (!name || !message) {
+      alert('请至少填写名字和心愿内容');
+      return;
+    }
+
+    const wishList = document.getElementById('wishList');
+    
+    // 移除空状态
+    const empty = wishList.querySelector('div');
+    if (empty && empty.querySelector('.fa-inbox')) {
+      wishList.innerHTML = '';
+    }
+
+    const card = document.createElement('div');
+    card.style.cssText = 'background: white; border-radius: 16px; padding: 18px; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); animation: slideUp 0.4s ease-out;';
+    card.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #7f8c6b, #3a4e3f); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.1rem;">${name.charAt(0).toUpperCase()}</div>
+        <div>
+          <div style="font-weight: 700; color: #3a4e3f;">${name}</div>
+          <div style="font-size: 0.8rem; color: #7f8c6b;"><i class="fas fa-globe-asia"></i> ${country || '未知'}</div>
+        </div>
+            <span style="margin-left: auto; font-size: 0.75rem; color: #b0a89a;">刚刚</span>
+          </div>
+          <p style="color: #4a4a4a; line-height: 1.6; margin: 0;">${message}</p >
+        `;
+        
+        wishList.insertBefore(card, wishList.firstChild);
+
+        // 清空表单
+        document.getElementById('wishName').value = '';
+        document.getElementById('wishCountry').value = '';
+        document.getElementById('wishMessage').value = '';
+      }
+    </script>
+<!-- 音乐播放器 -->
+<style>
+  .music-player {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+ background: rgba(255, 255, 255, 0.5);
+backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 8px 16px 8px 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  .music-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #3a4e3f;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
+  .music-btn:hover {
+    background: #5a6e5f;
+  }
+
+  .music-btn.playing {
+    animation: musicPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes musicPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(58,78,63,0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(58,78,63,0); }
+  }
+
+  .music-label {
+    font-size: 0.8rem;
+    color: #6b705c;
+    font-weight: 500;
+  }
+.stamp-inline {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #d9d2c5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #8a7e6b;
+  transition: all 0.5s;
+  border: 2px dashed #c8c0b0;
+}
+.stamp-inline.earned {
+  background: #3a4e3f;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+  animation: stampEarned 0.6s ease-out;
+}
+@keyframes stampEarned {
+  0% { transform: scale(1.8); }
+  100% { transform: scale(1); }
+}
+</style>
+
+<div class="music-player">
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+    <i class="fas fa-play"></i>
+  </button>
+  <span class="music-label">拾光轻音乐</span>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="你的音乐.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      musicBtn.classList.add('playing');
+    } else {
+      music.pause();
+      musicBtn.innerHTML = '<i class="fas fa-play"></i>';
+      musicBtn.classList.remove('playing');
+    }
+  }
+</script> 
+
+
+
+<script>
+  const stamps = {
+    shenzhen: 'stampSZ',
+    haerbin: 'stampHEB',
+    luoyang: 'stampLY',
+   world: 'stampSH'
+  };
+
+  function earnStamp(city) {
+    const stampId = stamps[city];
+    if (stampId && !document.getElementById(stampId).classList.contains('earned')) {
+      document.getElementById(stampId).classList.add('earned');
+      // 检查是否全部集齐
+     if (document.querySelectorAll('.stamp-inline.earned').length === 4) {
+  setTimeout(() => alert('🎉 恭喜！你集齐了全部的印章！'), 600);
+}
+    }
+  }
+</script> 
+<!-- 小宠物跟着鼠标 -->
+<style>
+  .pet {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    font-size: 2rem;
+    transition: transform 0.1s ease-out;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  }
+</style>
+
+<div class="pet" id="pet"><i class="far fa-smile" style="font-size: 2rem; color: #7f8c6b;"></i></div>
+
+<script>
+  const petEl = document.getElementById('pet');
+  let mouseX = 0, mouseY = 0;
+  let petX = 0, petY = 0;
+  let hoverActive = false;
+
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animatePet() {
+    petX += (mouseX - petX - 20) * 0.1;
+    petY += (mouseY - petY - 20) * 0.1;
+    petEl.style.left = petX + 'px';
+    petEl.style.top = petY + 'px';
+    requestAnimationFrame(animatePet);
+  }
+  animatePet();
+
+  function setDefault() {
+    if (!hoverActive) {
+      petEl.innerHTML = '<i class="far fa-smile" style="font-size: 2rem; color: #7f8c6b;"></i>';
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('button, a, .float-ball, .itin-card, .photo-card')) return;
+    petEl.innerHTML = '<i class="far fa-grin-hearts" style="font-size: 2rem; color: #e07b7b;"></i>';
+    setTimeout(setDefault, 900);
+  });
+
+  document.addEventListener('dblclick', function() {
+    petEl.innerHTML = '<i class="far fa-laugh-squint" style="font-size: 2rem; color: #f5a623;"></i>';
+    setTimeout(setDefault, 1000);
+  });
+
+  document.querySelectorAll('button, a, .float-ball, .itin-card, .photo-card, .map-pin').forEach(el => {
+    el.addEventListener('mouseenter', function() {
+      hoverActive = true;
+      petEl.innerHTML = '<i class="far fa-smile-wink" style="font-size: 2rem; color: #42a5f5;"></i>';
+    });
+    el.addEventListener('mouseleave', function() {
+      hoverActive = false;
+      petEl.innerHTML = '<i class="far fa-smile" style="font-size: 2rem; color: #7f8c6b;"></i>';
+    });
+  });
+</script>
+<!-- 拼图游戏弹窗 -->
+<style>
+  .puzzle-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 16px;
+  }
+  .puzzle-piece {
+    background-size: 300px 300px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .puzzle-piece:hover {
+    transform: scale(1.05);
+  }
+  .puzzle-win {
+    animation: celebrate 0.5s ease-out;
+  }
+  @keyframes celebrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+</style>
+
+<div class="detail-overlay" id="puzzleOverlay">
+  <div class="detail-panel" style="max-width: 500px; text-align: center; padding: 30px;">
+    <button class="detail-close" onclick="closePuzzle()">&times;</button>
+    <h3 style="color: #3a4e3f; margin-bottom: 4px;"><i class="fas fa-puzzle-piece"></i> 游学拼图</h3>
+    <p style="color: #6b705c; margin-bottom: 16px; font-size: 0.9rem;">点击两块图片交换位置，拼出完整画面</p >
+    <div class="puzzle-board" id="puzzleBoard"></div>
+    <button onclick="shufflePuzzle()" style="padding: 10px 24px; background: #3a4e3f; color: white; border: none; border-radius: 20px; cursor: pointer; font-weight: 600;">
+      <i class="fas fa-random"></i> 重新打乱
+    </button>
+    <p id="puzzleMsg" style="margin-top: 10px; font-weight: 600; color: #3a4e3f;"></p >
+  </div>
+</div>
+
+<script>
+  const puzzleImg = 'https://placehold.co/300x300/7f8c6b/ffffff?text=拾光游学';
+  let pieces = [0,1,2,3,4,5,6,7,8];
+  let selected = null;
+
+  function openPuzzle() {
+    document.getElementById('puzzleOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+    shufflePuzzle();
+  }
+  function closePuzzle() {
+    document.getElementById('puzzleOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+    document.getElementById('puzzleMsg').textContent = '';
+  }
+  document.getElementById('puzzleOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closePuzzle();
+  });
+
+  function shufflePuzzle() {
+    pieces = [0,1,2,3,4,5,6,7,8];
+    for (let i = pieces.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pieces[i], pieces[j]] = [pieces[j], pieces[i]];
+    }
+    selected = null;
+    document.getElementById('puzzleMsg').textContent = '';
+    renderPuzzle();
+  }
+
+  function renderPuzzle() {
+    const board = document.getElementById('puzzleBoard');
+    board.innerHTML = '';
+    pieces.forEach((num, idx) => {
+      const div = document.createElement('div');
+      div.className = 'puzzle-piece';
+      const row = Math.floor(num / 3);
+      const col = num % 3;
+      div.style.backgroundImage = 'url(' + puzzleImg + ')';
+      div.style.backgroundPosition = '-' + col * 100 + 'px -' + row * 100 + 'px';
+      div.onclick = function() { selectPiece(idx); };
+      board.appendChild(div);
+    });
+  }
+
+  function selectPiece(idx) {
+    if (selected === null) {
+      selected = idx;
+      document.getElementById('puzzleBoard').children[idx].style.outline = '3px solid #3a4e3f';
+    } else if (selected === idx) {
+      document.getElementById('puzzleBoard').children[idx].style.outline = 'none';
+      selected = null;
+    } else {
+      [pieces[selected], pieces[idx]] = [pieces[idx], pieces[selected]];
+      document.getElementById('puzzleBoard').children[selected].style.outline = 'none';
+      selected = null;
+      renderPuzzle();
+      checkWin();
+    }
+  }
+
+  function checkWin() {
+    if (pieces.every((v, i) => v === i)) {
+      document.getElementById('puzzleMsg').textContent = '🎉 拼图完成！真棒！';
+      document.getElementById('puzzleBoard').classList.add('puzzle-win');
+      setTimeout(() => document.getElementById('puzzleBoard').classList.remove('puzzle-win'), 500);
+    }
+  }
+</script>
+<!-- 深圳城市详情弹窗 -->
+<div class="detail-overlay" id="cityShenzhenOverlay">
+  <div class="detail-panel" style="max-width: 900px; padding: 0; display: flex; flex-direction: column;">
+    <button class="detail-close" onclick="closeCityDetail('shenzhen')">&times;</button>
+    
+    <div style="background: linear-gradient(135deg, #00bcd4, #0097a7); color: white; padding: 30px 36px; border-radius: 28px 28px 0 0; text-align: center;">
+      <i class="fas fa-robot" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+      <h2 style="margin: 0; font-size: 1.8rem;">深圳 · 创新之都</h2>
+      <p style="margin: 8px 0 0; opacity: 0.85;">中国硅谷 · 科技与未来的交汇点</p >
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; min-height: 400px;">
+      <div style="flex: 1 1 320px; padding: 28px; background: #fefcf7;">
+        <div class="section-label" style="margin-bottom: 12px;"><i class="fas fa-circle"></i> 城市故事</div>
+        <div class="detail-intro" style="font-size: 1.05rem; line-height: 1.9; border-left: 3px solid #00bcd4;">
+          深圳，一座只用40年就从边陲小镇蜕变为国际化大都市的奇迹之城。这里诞生了华为、腾讯、大疆等世界级企业，华强北电子市场被誉为"硬件硅谷"。在深圳，创新是城市的DNA：街头随处可见的共享科技、无人便利店、机器人餐厅，让人仿佛置身未来。南头古城则静静诉说着深圳的前世今生，青砖黛瓦间藏着1700年的历史。蛇口海上世界、深圳湾公园、大鹏所城……科技与自然在这里完美融合。拾光带你走进腾讯总部、探访创客空间、漫步深圳湾，感受这座不眠之城的脉搏与温度。
+        </div>
+        <div class="detail-footer-bar" style="margin-top: 16px;">
+          <span class="tag"><i class="fas fa-map-pin"></i> 广东 · 珠三角</span>
+          <span class="tag"><i class="fas fa-clock"></i> 1980年建市</span>
+          <span class="tag"><i class="fas fa-building"></i> 中国硅谷</span>
+        </div>
+      </div>
+      <div style="flex: 1 1 380px; padding: 28px; background: #f0f8f9; border-radius: 0 0 28px 0; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center; color: #0097a7;">
+          <i class="fas fa-images" style="font-size: 4rem; display: block; margin-bottom: 14px; opacity: 0.5;"></i>
+          <p style="font-weight: 500;">📸 深圳游学照片将在这里展示</p >
+          <p style="font-size: 0.85rem; color: #6b705c;">后续可添加图片和互动插件</p >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 哈尔滨城市详情弹窗 -->
+<div class="detail-overlay" id="cityHaerbinOverlay">
+  <div class="detail-panel" style="max-width: 900px; padding: 0; display: flex; flex-direction: column;">
+    <button class="detail-close" onclick="closeCityDetail('haerbin')">&times;</button>
+    
+    <div style="background: linear-gradient(135deg, #42a5f5, #1e88e5); color: white; padding: 30px 36px; border-radius: 28px 28px 0 0; text-align: center;">
+      <i class="far fa-snowflake" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+      <h2 style="margin: 0; font-size: 1.8rem;">哈尔滨 · 冰城夏都</h2>
+      <p style="margin: 8px 0 0; opacity: 0.85;">东方莫斯科 · 北国冰雪童话</p >
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; min-height: 400px;">
+      <div style="flex: 1 1 320px; padding: 28px; background: #fefcf7;">
+        <div class="section-label" style="margin-bottom: 12px;"><i class="fas fa-circle"></i> 城市故事</div>
+        <div class="detail-intro" style="font-size: 1.05rem; line-height: 1.9; border-left: 3px solid #42a5f5;">
+          哈尔滨，一座被冰雪亲吻的城市。中央大街的方石路记录着百年欧陆风情，圣索菲亚教堂的穹顶在晨光中熠熠生辉。每到冬季，冰雪大世界的琉璃世界如梦似幻，冰雕艺术家用晶莹冰块雕刻出整座城市。松花江上，冬泳爱好者破冰入水，江畔的雾凇挂满枝头。夏日里，太阳岛绿意盎然，音乐公园传来悠扬的交响乐。秋林红肠的烟熏味、马迭尔冰棍的奶香、铁锅炖的热气腾腾，构成了哈尔滨独特的味觉记忆。拾光带你穿越中央大街的百年石路，在松花江畔听风，感受这座城市的浪漫与坚韧。
+        </div>
+        <div class="detail-footer-bar" style="margin-top: 16px;">
+          <span class="tag"><i class="fas fa-map-pin"></i> 黑龙江 · 东北</span>
+          <span class="tag"><i class="fas fa-clock"></i> 1898年开埠</span>
+          <span class="tag"><i class="fas fa-snowman"></i> 冰城夏都</span>
+        </div>
+      </div>
+      <div style="flex: 1 1 380px; padding: 28px; background: #f1f4f8; border-radius: 0 0 28px 0; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center; color: #1e88e5;">
+          <i class="fas fa-images" style="font-size: 4rem; display: block; margin-bottom: 14px; opacity: 0.5;"></i>
+          <p style="font-weight: 500;">📸 哈尔滨游学照片将在这里展示</p >
+          <p style="font-size: 0.85rem; color: #6b705c;">后续可添加图片和互动插件</p >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 洛阳城市详情弹窗 -->
+<div class="detail-overlay" id="cityLuoyangOverlay">
+  <div class="detail-panel" style="max-width: 900px; padding: 0; display: flex; flex-direction: column;">
+    <button class="detail-close" onclick="closeCityDetail('luoyang')">&times;</button>
+    
+    <div style="background: linear-gradient(135deg, #d4a574, #b8860b); color: white; padding: 30px 36px; border-radius: 28px 28px 0 0; text-align: center;">
+      <i class="fas fa-landmark" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+      <h2 style="margin: 0; font-size: 1.8rem;">洛阳 · 千年古都</h2>
+      <p style="margin: 8px 0 0; opacity: 0.85;">十三朝帝都 · 牡丹花城</p >
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; min-height: 400px;">
+      <div style="flex: 1 1 320px; padding: 28px; background: #fefcf7;">
+        <div class="section-label" style="margin-bottom: 12px;"><i class="fas fa-circle"></i> 城市故事</div>
+        <div class="detail-intro" style="font-size: 1.05rem; line-height: 1.9; border-left: 3px solid #d4a574;">
+          洛阳，华夏文明的重要发祥地，先后有十三个王朝在此建都。龙门石窟的十万余尊佛像静默千年，卢舍那大佛的微笑穿越时空；白马寺的晨钟暮鼓是中国佛教的第一声回响。每年四月，牡丹花开满城，"唯有牡丹真国色，花开时节动京城"。洛阳水席二十四道菜肴流淌着盛唐遗风，一碗牛肉汤配烧饼是洛阳人最温暖的清晨。关林庙的忠义、天子驾六的震撼、洛阳博物馆的珍宝……这座古城在每一块砖瓦间都藏着故事。拾光带你走进龙门山色，亲手制作唐三彩，在千年帝都感受华夏文明的厚重与辉煌。
+        </div>
+        <div class="detail-footer-bar" style="margin-top: 16px;">
+          <span class="tag"><i class="fas fa-map-pin"></i> 河南 · 中原</span>
+          <span class="tag"><i class="fas fa-clock"></i> 4000年建城史</span>
+          <span class="tag"><i class="fas fa-crown"></i> 十三朝古都</span>
+        </div>
+      </div>
+      <div style="flex: 1 1 380px; padding: 28px; background: #fdf8f2; border-radius: 0 0 28px 0; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center; color: #b8860b;">
+          <i class="fas fa-images" style="font-size: 4rem; display: block; margin-bottom: 14px; opacity: 0.5;"></i>
+          <p style="font-weight: 500;">📸 洛阳游学照片将在这里展示</p >
+          <p style="font-size: 0.85rem; color: #6b705c;">后续可添加图片和互动插件</p >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="detail-overlay" id="bottleOverlay">
+  <div class="detail-panel" style="max-width: 550px; padding: 0; text-align: center; overflow: hidden; border-radius: 28px;">
+    <button class="detail-close" onclick="closeBottle()" style="z-index: 10; color: white; background: rgba(0,0,0,0.3);">&times;</button>
+    
+    <!-- 海洋顶部 -->
+    <div style="background: linear-gradient(180deg, #1a3a5c 0%, #0d5e8a 40%, #2196b5 100%); padding: 40px 30px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; left: 20px; font-size: 1.5rem; opacity: 0.5; animation: bubble 3s ease-in-out infinite;">🫧</div>
+      <div style="position: absolute; top: 30px; right: 30px; font-size: 1rem; opacity: 0.4; animation: bubble 4s ease-in-out 1s infinite;">🫧</div>
+      <div style="position: absolute; bottom: 20px; left: 40px; font-size: 0.8rem; opacity: 0.3; animation: bubble 3.5s ease-in-out 0.5s infinite;">🫧</div>
+      <i class="fas fa-water" style="font-size: 3rem; color: rgba(255,255,255,0.3); margin-bottom: 12px;"></i>
+      <h3 style="color: white; font-size: 1.6rem; margin: 0;">漂流瓶</h3>
+      <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">把你的心情扔进大海，也捞起别人的故事</p >
+      
+      <!-- 扔瓶子 -->
+      <textarea id="bottleMsg" placeholder="写下你想说的话..." rows="3" style="width: 100%; padding: 14px; border: none; border-radius: 16px; margin: 16px 0 12px; font-size: 0.95rem; resize: vertical; outline: none; font-family: inherit; box-shadow: 0 4px 16px rgba(0,0,0,0.2);"></textarea>
+      <button onclick="throwBottle()" style="padding: 12px 30px; background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.5); border-radius: 25px; font-size: 1rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(4px);"><i class="fas fa-water"></i> 扔入大海</button>
+    </div>
+
+    <!-- 捞瓶子 -->
+    <div style="background: linear-gradient(180deg, #b8dce8 0%, #d4eaf0 30%, #e8f4f8 100%); padding: 30px; position: relative;">
+      <div style="position: absolute; bottom: 10px; left: 30px; font-size: 2rem; opacity: 0.3;">🐚</div>
+      <div style="position: absolute; bottom: 20px; right: 25px; font-size: 1.8rem; opacity: 0.25;">🐚</div>
+      <i class="fas fa-fish" style="font-size: 2.2rem; color: #0d5e8a; margin-bottom: 8px;"></i>
+      <h4 style="color: #1a3a5c; margin: 0 0 8px;">捞一个漂流瓶</h4>
+      <button onclick="pickBottle()" style="padding: 10px 28px; background: #0d5e8a; color: white; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-bottom: 14px;"><i class="fas fa-anchor"></i> 捞瓶子</button>
+      <div id="pickedBottle" style="padding: 18px; background: white; border-radius: 16px; display: none; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+        <p id="pickedMsg" style="color: #1a3a5c; font-style: italic; margin: 0;"></p >
+        <span id="pickedTime" style="font-size: 0.75rem; color: #6b705c;"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  @keyframes bubble {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+    50% { transform: translateY(-12px) scale(1.2); opacity: 0.8; }
+  }
+</style>
+<script>
+  function openBottle() {
+    document.getElementById('bottleOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeBottle() {
+    document.getElementById('bottleOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('bottleOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeBottle();
+  });
+  function throwBottle() {
+    const msg = document.getElementById('bottleMsg').value.trim();
+    if (!msg) { alert('写点什么再扔吧！'); return; }
+    const bottles = JSON.parse(localStorage.getItem('drift_bottles') || '[]');
+    bottles.push({ message: msg, time: new Date().toLocaleString() });
+    localStorage.setItem('drift_bottles', JSON.stringify(bottles));
+    document.getElementById('bottleMsg').value = '';
+    alert('漂流瓶已扔入大海！');
+  }
+  function pickBottle() {
+    const bottles = JSON.parse(localStorage.getItem('drift_bottles') || '[]');
+    if (bottles.length === 0) { alert('大海空空如也……'); return; }
+    const random = bottles[Math.floor(Math.random() * bottles.length)];
+    document.getElementById('pickedBottle').style.display = 'block';
+    document.getElementById('pickedMsg').textContent = random.message;
+    document.getElementById('pickedTime').textContent = random.time;
+  }
+</script>
+</body>
+</html>
